@@ -1,1 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours de Mathématiques</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .card h2 {
+            color: #5a67d8;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+        }
+
+        .card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .announcements {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeInLeft 0.8s ease-out 0.5s both;
+        }
+
+        .announcements h2 {
+            color: #e53e3e;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .announcement-item {
+            background: #f7fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            border-left: 4px solid #e53e3e;
+        }
+
+        .announcement-date {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 2rem 0;
+            opacity: 0.8;
+        }
+
+        .math-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ctext x='10' y='30' font-family='serif' font-size='20' fill='white'%3E∑%3C/text%3E%3Ctext x='60' y='60' font-family='serif' font-size='18' fill='white'%3E∫%3C/text%3E%3Ctext x='30' y='80' font-family='serif' font-size='16' fill='white'%3E∞%3C/text%3E%3Ctext x='80' y='20' font-family='serif' font-size='14' fill='white'%3Eπ%3C/text%3E%3C/svg%3E");
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="math-bg"></div>
+    
+    <div class="container">
+        <header>
+            <h1>📚 Cours de Mathématiques</h1>
+            <p>Bienvenue sur votre espace d'apprentissage</p>
+        </header>
+
+        <div class="announcements">
+            <h2>📢 Annonces Importantes</h2>
+            <div class="announcement-item">
+                <div class="announcement-date">18 septembre 2025</div>
+                <div>Nouveau chapitre sur les fonctions exponentielles disponible !</div>
+            </div>
+            <div class="announcement-item">
+                <div class="announcement-date">15 septembre 2025</div>
+                <div>Les corrections du devoir n°2 sont en ligne dans la section devoirs.</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="card">
+                <h2><span class="card-icon">📖</span>Cours</h2>
+                <p>Accédez à tous les chapitres, leçons détaillées, exemples et exercices corrigés organisés par thème.</p>
+                <a href="cours/" class="btn">Voir les cours</a>
+            </div>
+
+            <div class="card">
+                <h2><span class="card-icon">✏️</span>Devoirs</h2>
+                <p>Retrouvez tous vos devoirs, leurs énoncés, corrections détaillées et barèmes de notation.</p>
+                <a href="devoirs/" class="btn">Voir les devoirs</a>
+            </div>
+
+            <div class="card">
+                <h2><span class="card-icon">🧮</span>Exercices</h2>
+                <p>Entraînez-vous avec notre collection d'exercices supplémentaires classés par niveau et difficulté.</p>
+                <a href="exercices/" class="btn">S'entraîner</a>
+            </div>
+
+            <div class="card">
+                <h2><span class="card-icon">📊</span>Formulaires</h2>
+                <p>Consultez les formulaires essentiels, tables de valeurs et mémentos pour vos révisions.</p>
+                <a href="formulaires/" class="btn">Consulter</a>
+            </div>
+
+            <div class="card">
+                <h2><span class="card-icon">🎯</span>Méthodologie</h2>
+                <p>Découvrez nos conseils et méthodes pour réussir en mathématiques et optimiser vos révisions.</p>
+                <a href="methodologie/" class="btn">Apprendre</a>
+            </div>
+
+            <div class="card">
+                <h2><span class="card-icon">💬</span>Contact</h2>
+                <p>Une question ? Un problème ? N'hésitez pas à me contacter pour obtenir de l'aide.</p>
+                <a href="contact/" class="btn">Me contacter</a>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2025 - Cours de Mathématiques | Dernière mise à jour : septembre 2025</p>
+        </footer>
+    </div>
+</body>
+</html>
